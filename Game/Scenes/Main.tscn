@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Sprites/Backgr.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Desk1.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Sprites/Scroll/VERDE4.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/gameController.gd" type="Script" id=10]
 [ext_resource path="res://Assets/StartButton.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/enchating.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.485, 30.8219 )
@@ -118,5 +119,21 @@ shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Wcreate" type="Node2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="newScroll" type="Sprite" parent="Wcreate"]
+visible = false
+position = Vector2( 128.346, 37.7323 )
+z_index = 11
+z_as_relative = false
+texture = ExtResource( 6 )
+
+[node name="stre" type="Sprite" parent="Wcreate/newScroll"]
+
+[node name="inte" type="Sprite" parent="Wcreate/newScroll"]
+
+[node name="agi" type="Sprite" parent="Wcreate/newScroll"]
 [connection signal="input_event" from="SpriteController/Button" to="SpriteController/Button" method="_on_Button_input_event"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_Area2D_input_event"]

@@ -26,6 +26,10 @@ func _on_Button_input_event(viewport, event, shape_idx):	#event listener pentru 
 				pos1.set_disabled(true)	#detectoarele de coliziuni
 				pos2.set_disabled(false)
 				
+				get_parent().get_parent().get_node("CharacterSystem/scrollSprite").visible = false #disparitie Scroll
+				get_parent().get_parent().get_node("Wcreate/newScroll").visible = true
+				get_parent().get_parent().get_node("Wcreate").newEnchant()
+				
 				shutternode.visible = true	#sprite
 				
 				open = 0
@@ -34,6 +38,10 @@ func _on_Button_input_event(viewport, event, shape_idx):	#event listener pentru 
 				
 				pos1.set_disabled(false) #detectoare de coliziuni
 				pos2.set_disabled(true)
+				
+				get_parent().get_parent().get_node("Wcreate/newScroll").visible = false
+				print(get_parent().get_parent().get_node("CharacterSystem").ValidareClient(get_parent().get_parent().get_node("Wcreate").strength, get_parent().get_parent().get_node("Wcreate").intelligence, get_parent().get_parent().get_node("Wcreate").agility))
+				get_parent().get_parent().get_node("CharacterSystem").NewClient()
 				
 				shutternode.visible = false	#sprite
 				
