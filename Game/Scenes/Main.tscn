@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Sprites/Backgr.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Desk1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/Desk2.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/shutter.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/character.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollBlank.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Scroll/ROSU2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Scroll/ALBASTRU3.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Scroll/VERDE4.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.485, 30.8219 )
@@ -14,6 +19,7 @@ extents = Vector2( 27.485, 30.8219 )
 
 [node name="Backgr" type="Sprite" parent="SpriteController"]
 position = Vector2( 255, 255 )
+z_as_relative = false
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -21,6 +27,8 @@ __meta__ = {
 
 [node name="Desk1" type="Sprite" parent="SpriteController"]
 position = Vector2( 256, 256 )
+z_index = 8
+z_as_relative = false
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -30,6 +38,7 @@ __meta__ = {
 visible = false
 position = Vector2( 256, 256 )
 z_index = 10
+z_as_relative = false
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
@@ -54,4 +63,35 @@ disabled = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="CharacterSystem" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="characterSprite" type="Sprite" parent="CharacterSystem"]
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="scrollSprite" type="Sprite" parent="CharacterSystem"]
+position = Vector2( 0, -2 )
+z_index = 9
+z_as_relative = false
+texture = ExtResource( 6 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="stre" type="Sprite" parent="CharacterSystem/scrollSprite"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="inte" type="Sprite" parent="CharacterSystem/scrollSprite"]
+texture = ExtResource( 8 )
+centered = false
+
+[node name="agi" type="Sprite" parent="CharacterSystem/scrollSprite"]
+texture = ExtResource( 9 )
+centered = false
 [connection signal="input_event" from="SpriteController/Button" to="SpriteController/Button" method="_on_Button_input_event"]
