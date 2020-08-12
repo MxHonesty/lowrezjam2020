@@ -10,6 +10,7 @@ var agility = 0
 var stre
 var inte 
 var agi
+var scrollSprite
 
 #array-uri cu texturile pentru scroll
 var albastru = []
@@ -24,6 +25,7 @@ func _ready():
 	stre = get_node("scrollSprite/stre")	#referinte la prite-uri pentru scroll
 	inte = get_node("scrollSprite/inte")
 	agi = get_node("scrollSprite/agi")
+	scrollSprite = get_node("scrollSprite")
 	
 	albastru.append(preload("res://Assets/Sprites/Scroll/ALBASTRU1.png"))	#incarca toate texturile necesare
 	albastru.append(preload("res://Assets/Sprites/Scroll/ALBASTRU2.png"))
@@ -40,7 +42,7 @@ func _ready():
 	verde.append(preload("res://Assets/Sprites/Scroll/VERDE3.png"))
 	verde.append(preload("res://Assets/Sprites/Scroll/VERDE4.png"))
 	
-	generateNew()	#genereaza un nou set de valori
+	NewClient()
 	print(str(strength) + " " + str(intelligence) + " " + str(agility))
 
 
@@ -56,8 +58,17 @@ func generateNew():	#generates new values for character stats
 	pass
 
 
-
-
-
-func _on_scrollSprite_draw():
-	pass # Replace with function body.
+func NewClient():	#functie apelata dupa terminarea clientului
+	scrollSprite.visible = true
+	generateNew()
+	
+	
+func ValidareClient(x, y ,z):	#calculare punctaj
+	#	#strength intelligence agility
+	var punctaj = 10
+	var deficit = abs(x-strength) + abs(y-intelligence) + abs(z - agility)
+	punctaj = punctaj - 2 * deficit
+	if(punctaj == 10):
+		 return 15
+	else:
+		 return punctaj

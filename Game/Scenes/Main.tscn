@@ -74,6 +74,7 @@ __meta__ = {
 }
 
 [node name="scrollSprite" type="Sprite" parent="CharacterSystem"]
+visible = false
 position = Vector2( 0, -2 )
 z_index = 9
 z_as_relative = false
