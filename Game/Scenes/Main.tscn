@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Sprites/Backgr.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Desk1.png" type="Texture" id=2]
@@ -9,9 +9,14 @@
 [ext_resource path="res://Assets/Sprites/Scroll/ROSU2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Scroll/ALBASTRU3.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Sprites/Scroll/VERDE4.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/gameController.gd" type="Script" id=10]
+[ext_resource path="res://Assets/StartButton.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.485, 30.8219 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 151.778, 36.6443 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -95,4 +100,23 @@ centered = false
 [node name="agi" type="Sprite" parent="CharacterSystem/scrollSprite"]
 texture = ExtResource( 9 )
 centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+position = Vector2( 0, -1 )
+texture = ExtResource( 11 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 251.99, 286.698 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 [connection signal="input_event" from="SpriteController/Button" to="SpriteController/Button" method="_on_Button_input_event"]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_Area2D_input_event"]

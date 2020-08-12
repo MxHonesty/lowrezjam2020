@@ -3,6 +3,7 @@ extends Node
 
 # Declare member variables here. Examples:
 
+var started = 0
 var open = 1 #retine daca e inchis sau deschis
 var pos1	#CollisionShape in pozitia intiala
 var pos2	#CollisionShape in pozitia secundara
@@ -17,23 +18,24 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Button_input_event(viewport, event, shape_idx):	#event listener pentru buton
-	if (event.is_action_pressed("ui_click") && event.pressed):	#daca apasa click dreapta
-		
-		if(open == 1): #inchide
+	if(started == 1):
+		if (event.is_action_pressed("ui_click") && event.pressed):	#daca apasa click dreapta
 			
-			pos1.set_disabled(true)	#detectoarele de coliziuni
-			pos2.set_disabled(false)
-			
-			shutternode.visible = true	#sprite
-			
-			open = 0
-
-		elif(open == 0): #deschide
-			
-			pos1.set_disabled(false) #detectoare de coliziuni
-			pos2.set_disabled(true)
-			
-			shutternode.visible = false	#sprite
-			
-			open = 1
+			if(open == 1): #inchide
+				
+				pos1.set_disabled(true)	#detectoarele de coliziuni
+				pos2.set_disabled(false)
+				
+				shutternode.visible = true	#sprite
+				
+				open = 0
+	
+			elif(open == 0): #deschide
+				
+				pos1.set_disabled(false) #detectoare de coliziuni
+				pos2.set_disabled(true)
+				
+				shutternode.visible = false	#sprite
+				
+				open = 1
 

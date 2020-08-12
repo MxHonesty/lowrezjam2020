@@ -1,5 +1,6 @@
 extends Node
 
+var started = 0
 
 #valori numerice atribute
 var strength = 0
@@ -42,8 +43,8 @@ func _ready():
 	verde.append(preload("res://Assets/Sprites/Scroll/VERDE3.png"))
 	verde.append(preload("res://Assets/Sprites/Scroll/VERDE4.png"))
 	
-	NewClient()
-	print(str(strength) + " " + str(intelligence) + " " + str(agility))
+	#NewClient()
+	#print(str(strength) + " " + str(intelligence) + " " + str(agility))
 
 
 func generateNew():	#generates new values for character stats
@@ -59,12 +60,14 @@ func generateNew():	#generates new values for character stats
 
 
 func NewClient():	#functie apelata dupa terminarea clientului
-	scrollSprite.visible = true
-	generateNew()
+	if(started == 1):
+		scrollSprite.visible = true
+		generateNew()
 	
 	
 func ValidareClient(x, y ,z):	#calculare punctaj
 	#	#strength intelligence agility
+	
 	var punctaj = 10
 	var deficit = abs(x-strength) + abs(y-intelligence) + abs(z - agility)
 	punctaj = punctaj - 2 * deficit
