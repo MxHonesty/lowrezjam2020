@@ -40,33 +40,37 @@ func updateScroll():
 
 func _on_b1_input_event(viewport, event, shape_idx):
 	if (event.is_action_pressed("ui_click") && event.pressed):	#daca apasa click dreapta
+		get_node("Buttons/b1").anim.play('SETUP')
 		if(intelligence < 4):
 			if(strength > 1):
 				strength = strength - 1
 			intelligence = intelligence + 1
 			updateScroll()
-		print("b1")
+		#print("b1")
 
 func _on_b2_input_event(viewport, event, shape_idx):
 	if (event.is_action_pressed("ui_click") && event.pressed):	#daca apasa click dreapta
+		get_node("Buttons/b2").anim.play('SETUP')
 		if(agility < 4):
 			strength = 1
 			agility = agility + 1
 			if(intelligence > 1):
 				intelligence = intelligence - 1
 			updateScroll()
-		print("b2")
+		#print("b2")
 
 func _on_b3_input_event(viewport, event, shape_idx):
 	if (event.is_action_pressed("ui_click") && event.pressed):	#daca apasa click dreapta
+		get_node("Buttons/b3").anim.play('SETUP')
 		if(strength < 4):
 			strength = strength + 1
 			updateScroll()
 			
-		print("b3")
+		#print("b3")
 
 func _on_b4_input_event(viewport, event, shape_idx):
 	if (event.is_action_pressed("ui_click") && event.pressed):	#daca apasa click dreapta
+		get_node("Buttons/b4").anim.play('SETUP')
 		var redus = get_parent().get_node("CharacterSystem").max3(strength, intelligence, agility)
 		if(redus == 1):
 			strength = 1
@@ -78,15 +82,18 @@ func _on_b4_input_event(viewport, event, shape_idx):
 			agility = 1
 			
 		updateScroll()
-		print("b4")
+		#print("b4")
 
 func _on_b6_input_event(viewport, event, shape_idx):
+	
 	if (event.is_action_pressed("ui_click") && event.pressed):	#daca apasa click dreapta
+		get_node("Buttons/b6").anim.play('SETUP')
 		newEnchant()
-		print("b6")
+		#print("b6")
 
 func _on_b5_input_event(viewport, event, shape_idx):
 	if (event.is_action_pressed("ui_click") && event.pressed):	#daca apasa click dreapta
+		get_node("Buttons/b5").anim.play('SETUP')
 		var redus = get_parent().get_node("CharacterSystem").max3(strength, intelligence, agility)
 		if(redus == 1 and strength > 1):
 			strength = strength - 1
@@ -97,4 +104,4 @@ func _on_b5_input_event(viewport, event, shape_idx):
 		if(redus == 3 and agility > 1):
 			agility = agility - 1
 		updateScroll()
-		print("b5")
+		#print("b5")

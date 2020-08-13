@@ -4,6 +4,7 @@ extends Node
 var sprite
 var col
 
+var anim
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,7 @@ func _ready():
 	col = get_node("CollisionShape2D")
 	pass # Replace with function body.
 
+	anim = get_node("but/AnimationPlayer")
 
 func disableSprite():
 	sprite.visible = false

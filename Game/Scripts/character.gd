@@ -90,7 +90,7 @@ func _process(delta):
 		player.stop()
 		if(loseplaying==0):
 			losemusic.play()
-			loseCondition = 1
+			loseplaying = 1
 		get_parent().get_node("win").visible = true
 		pass
 	pass
@@ -127,10 +127,10 @@ func ValidareClient(x, y ,z):	#calculare punctaj
 	punctaj = punctaj - 3 * deficit
 	if(punctaj == 10):
 		 coins = coins + 25
-		 print(coins)
+		 #print(coins)
 	else:
 		 coins = coins + punctaj
-		 print(coins)
+		 #print(coins)
 		
 	get_parent().get_node("CharacterSystem/characterSprite/RichTextLabel").text = "Coins: " + str(coins)
 	get_parent().get_node("CharacterSystem/characterSprite/RichTextLabel").update()
@@ -153,6 +153,6 @@ func _input(event):
 			musicPlaying = 0
 			
 		elif(musicPlaying == 0):
-			print("play")
+			#print("play")
 			player.play()
-			musicPlaying == 1
+			musicPlaying = 1

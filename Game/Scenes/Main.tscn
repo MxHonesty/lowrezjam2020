@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/Sprites/Backgr.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Desk1.png" type="Texture" id=2]
@@ -32,25 +32,121 @@ extents = Vector2( 27.485, 30.8219 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 151.778, 36.6443 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 35.3367, 37.1718 )
+[sub_resource type="Animation" id=3]
+resource_name = "SETUP"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 3.28671e-19, 3.20777e-06, 3.22927e-11 ),
+"update": 2,
+"values": [ Vector2( -1, -1 ), Vector2( -1, -9 ), Vector2( -1, -1 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 39.276, 38.2566 )
+extents = Vector2( 35.3367, 37.1718 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 37.3536, 38.9755 )
+extents = Vector2( 39.276, 38.2566 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 37, 39 )
+[sub_resource type="Animation" id=6]
+resource_name = "SETUP"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 3.28671e-19, 3.20777e-06, 3.22927e-11 ),
+"update": 2,
+"values": [ Vector2( -1, -1 ), Vector2( -1, -9 ), Vector2( -1, -1 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 37.5627, 37.95 )
+extents = Vector2( 37.3536, 38.9755 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 37.2589, 38.5946 )
+[sub_resource type="Animation" id=8]
+resource_name = "SETUP"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 3.28671e-19, 3.20777e-06, 3.22927e-11 ),
+"update": 2,
+"values": [ Vector2( -1, -1 ), Vector2( -1, -9 ), Vector2( -1, -1 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 37, 39 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "SETUP"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 3.28671e-19, 3.20777e-06, 3.22927e-11 ),
+"update": 2,
+"values": [ Vector2( -1, -1 ), Vector2( -1, -9 ), Vector2( -1, -1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 37.5627, 37.95 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "SETUP"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 3.28671e-19, 3.20777e-06, 3.22927e-11 ),
+"update": 2,
+"values": [ Vector2( -1, -1 ), Vector2( -1, -9 ), Vector2( -1, -1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 37.2589, 38.5946 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "SETUP"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 3.28671e-19, 3.20777e-06, 3.22927e-11 ),
+"update": 2,
+"values": [ Vector2( -1, -1 ), Vector2( -1, -9 ), Vector2( -1, -1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 312.756, 286.313 )
 
 [node name="Node2D" type="Node2D"]
@@ -197,9 +293,12 @@ z_as_relative = false
 texture = ExtResource( 14 )
 centered = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wcreate/Buttons/b1/but"]
+anims/SETUP = SubResource( 3 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b1"]
 position = Vector2( 55.0822, 310.833 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="b2" type="Area2D" parent="Wcreate/Buttons"]
@@ -207,7 +306,7 @@ script = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b2"]
 position = Vector2( 134.974, 311.007 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 disabled = true
 
 [node name="but" type="Sprite" parent="Wcreate/Buttons/b2"]
@@ -218,12 +317,15 @@ z_as_relative = false
 texture = ExtResource( 13 )
 centered = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wcreate/Buttons/b2/but"]
+anims/SETUP = SubResource( 6 )
+
 [node name="b3" type="Area2D" parent="Wcreate/Buttons"]
 script = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b3"]
 position = Vector2( 214.696, 311.527 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 disabled = true
 
 [node name="but" type="Sprite" parent="Wcreate/Buttons/b3"]
@@ -234,12 +336,15 @@ z_as_relative = false
 texture = ExtResource( 16 )
 centered = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wcreate/Buttons/b3/but"]
+anims/SETUP = SubResource( 8 )
+
 [node name="b4" type="Area2D" parent="Wcreate/Buttons"]
 script = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b4"]
 position = Vector2( 294.5, 311 )
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 disabled = true
 
 [node name="but" type="Sprite" parent="Wcreate/Buttons/b4"]
@@ -250,12 +355,15 @@ z_as_relative = false
 texture = ExtResource( 18 )
 centered = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wcreate/Buttons/b4/but"]
+anims/SETUP = SubResource( 10 )
+
 [node name="b5" type="Area2D" parent="Wcreate/Buttons"]
 script = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b5"]
 position = Vector2( 375.757, 310.35 )
-shape = SubResource( 7 )
+shape = SubResource( 11 )
 disabled = true
 
 [node name="but" type="Sprite" parent="Wcreate/Buttons/b5"]
@@ -266,12 +374,15 @@ z_as_relative = false
 texture = ExtResource( 17 )
 centered = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wcreate/Buttons/b5/but"]
+anims/SETUP = SubResource( 12 )
+
 [node name="b6" type="Area2D" parent="Wcreate/Buttons"]
 script = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b6"]
 position = Vector2( 454.832, 311.277 )
-shape = SubResource( 8 )
+shape = SubResource( 13 )
 disabled = true
 
 [node name="but" type="Sprite" parent="Wcreate/Buttons/b6"]
@@ -281,6 +392,9 @@ z_index = 12
 z_as_relative = false
 texture = ExtResource( 15 )
 centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wcreate/Buttons/b6/but"]
+anims/SETUP = SubResource( 14 )
 
 [node name="win" type="Sprite" parent="."]
 visible = false
@@ -295,7 +409,7 @@ script = ExtResource( 25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="win/Area2D"]
 position = Vector2( 261.756, 260.941 )
-shape = SubResource( 9 )
+shape = SubResource( 15 )
 
 [node name="winW" type="Sprite" parent="."]
 visible = false
@@ -310,7 +424,7 @@ script = ExtResource( 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="winW/Area2D2"]
 position = Vector2( 261.756, 260.941 )
-shape = SubResource( 9 )
+shape = SubResource( 15 )
 [connection signal="input_event" from="SpriteController/Button" to="SpriteController/Button" method="_on_Button_input_event"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="Wcreate/Buttons/b1" to="Wcreate" method="_on_b1_input_event"]
