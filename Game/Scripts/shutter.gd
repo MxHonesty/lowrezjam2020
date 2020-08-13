@@ -29,6 +29,7 @@ func _on_Button_input_event(viewport, event, shape_idx):	#event listener pentru 
 				get_parent().get_parent().get_node("CharacterSystem/scrollSprite").visible = false #disparitie Scroll
 				get_parent().get_parent().get_node("Wcreate/newScroll").visible = true
 				get_parent().get_parent().get_node("Wcreate").newEnchant()
+				get_parent().get_parent().get_node("Wcreate/Buttons").enableButtons()
 				
 				shutternode.visible = true	#sprite
 				
@@ -40,8 +41,9 @@ func _on_Button_input_event(viewport, event, shape_idx):	#event listener pentru 
 				pos2.set_disabled(true)
 				
 				get_parent().get_parent().get_node("Wcreate/newScroll").visible = false
-				print(get_parent().get_parent().get_node("CharacterSystem").ValidareClient(get_parent().get_parent().get_node("Wcreate").strength, get_parent().get_parent().get_node("Wcreate").intelligence, get_parent().get_parent().get_node("Wcreate").agility))
+				get_parent().get_parent().get_node("CharacterSystem").ValidareClient(get_parent().get_parent().get_node("Wcreate").strength, get_parent().get_parent().get_node("Wcreate").intelligence, get_parent().get_parent().get_node("Wcreate").agility)
 				get_parent().get_parent().get_node("CharacterSystem").NewClient()
+				get_parent().get_parent().get_node("Wcreate/Buttons").disableButtons()
 				
 				shutternode.visible = false	#sprite
 				

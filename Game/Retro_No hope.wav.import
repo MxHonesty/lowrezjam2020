@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Retro_No hope.wav-838e2085303e1ca3f3609b426005c9d2.sample"
+
+[deps]
+
+source_file="res://Retro_No hope.wav"
+dest_files=[ "res://.import/Retro_No hope.wav-838e2085303e1ca3f3609b426005c9d2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Assets/Sprites/Backgr.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Desk1.png" type="Texture" id=2]
@@ -12,12 +12,46 @@
 [ext_resource path="res://Scripts/gameController.gd" type="Script" id=10]
 [ext_resource path="res://Assets/StartButton.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/enchating.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Sprites/but2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/but1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/but6.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/but3.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/but5.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/but4.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/indbut.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/buttons.gd" type="Script" id=20]
+[ext_resource path="res://Assets/winW.png" type="Texture" id=21]
+[ext_resource path="res://Assets/win.png" type="Texture" id=22]
+[ext_resource path="res://Assets/font.tres" type="DynamicFont" id=23]
+[ext_resource path="res://Scripts/win.gd" type="Script" id=24]
+[ext_resource path="res://Scripts/winL.gd" type="Script" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.485, 30.8219 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 151.778, 36.6443 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 35.3367, 37.1718 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 39.276, 38.2566 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 37.3536, 38.9755 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 37, 39 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 37.5627, 37.95 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 37.2589, 38.5946 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 312.756, 286.313 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -79,6 +113,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterSystem/characterSprite"]
+visible = false
+margin_left = 188.117
+margin_top = 165.189
+margin_right = 318.117
+margin_bottom = 199.189
+custom_fonts/mono_font = ExtResource( 23 )
+custom_fonts/normal_font = ExtResource( 23 )
+text = "Coins: 15"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="scrollSprite" type="Sprite" parent="CharacterSystem"]
 visible = false
 position = Vector2( 0, -2 )
@@ -135,5 +182,142 @@ texture = ExtResource( 6 )
 [node name="inte" type="Sprite" parent="Wcreate/newScroll"]
 
 [node name="agi" type="Sprite" parent="Wcreate/newScroll"]
+
+[node name="Buttons" type="Node2D" parent="Wcreate"]
+script = ExtResource( 20 )
+
+[node name="b1" type="Area2D" parent="Wcreate/Buttons"]
+script = ExtResource( 19 )
+
+[node name="but" type="Sprite" parent="Wcreate/Buttons/b1"]
+visible = false
+position = Vector2( -1, -1 )
+z_index = 12
+z_as_relative = false
+texture = ExtResource( 14 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b1"]
+position = Vector2( 55.0822, 310.833 )
+shape = SubResource( 3 )
+disabled = true
+
+[node name="b2" type="Area2D" parent="Wcreate/Buttons"]
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b2"]
+position = Vector2( 134.974, 311.007 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="but" type="Sprite" parent="Wcreate/Buttons/b2"]
+visible = false
+position = Vector2( -1, -1 )
+z_index = 12
+z_as_relative = false
+texture = ExtResource( 13 )
+centered = false
+
+[node name="b3" type="Area2D" parent="Wcreate/Buttons"]
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b3"]
+position = Vector2( 214.696, 311.527 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="but" type="Sprite" parent="Wcreate/Buttons/b3"]
+visible = false
+position = Vector2( -1, -1 )
+z_index = 12
+z_as_relative = false
+texture = ExtResource( 16 )
+centered = false
+
+[node name="b4" type="Area2D" parent="Wcreate/Buttons"]
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b4"]
+position = Vector2( 294.5, 311 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="but" type="Sprite" parent="Wcreate/Buttons/b4"]
+visible = false
+position = Vector2( -1, -1 )
+z_index = 12
+z_as_relative = false
+texture = ExtResource( 18 )
+centered = false
+
+[node name="b5" type="Area2D" parent="Wcreate/Buttons"]
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b5"]
+position = Vector2( 375.757, 310.35 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="but" type="Sprite" parent="Wcreate/Buttons/b5"]
+visible = false
+position = Vector2( -1, -1 )
+z_index = 12
+z_as_relative = false
+texture = ExtResource( 17 )
+centered = false
+
+[node name="b6" type="Area2D" parent="Wcreate/Buttons"]
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wcreate/Buttons/b6"]
+position = Vector2( 454.832, 311.277 )
+shape = SubResource( 8 )
+disabled = true
+
+[node name="but" type="Sprite" parent="Wcreate/Buttons/b6"]
+visible = false
+position = Vector2( -1, -1 )
+z_index = 12
+z_as_relative = false
+texture = ExtResource( 15 )
+centered = false
+
+[node name="win" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 1.1, 1.1 )
+z_index = 20
+z_as_relative = false
+texture = ExtResource( 22 )
+centered = false
+script = ExtResource( 25 )
+
+[node name="Area2D" type="Area2D" parent="win"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win/Area2D"]
+position = Vector2( 261.756, 260.941 )
+shape = SubResource( 9 )
+
+[node name="winW" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 1.1, 1.1 )
+z_index = 20
+z_as_relative = false
+texture = ExtResource( 21 )
+centered = false
+script = ExtResource( 24 )
+
+[node name="Area2D2" type="Area2D" parent="winW"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="winW/Area2D2"]
+position = Vector2( 261.756, 260.941 )
+shape = SubResource( 9 )
 [connection signal="input_event" from="SpriteController/Button" to="SpriteController/Button" method="_on_Button_input_event"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Wcreate/Buttons/b1" to="Wcreate" method="_on_b1_input_event"]
+[connection signal="input_event" from="Wcreate/Buttons/b2" to="Wcreate" method="_on_b2_input_event"]
+[connection signal="input_event" from="Wcreate/Buttons/b3" to="Wcreate" method="_on_b3_input_event"]
+[connection signal="input_event" from="Wcreate/Buttons/b4" to="Wcreate" method="_on_b4_input_event"]
+[connection signal="input_event" from="Wcreate/Buttons/b5" to="Wcreate" method="_on_b5_input_event"]
+[connection signal="input_event" from="Wcreate/Buttons/b6" to="Wcreate" method="_on_b6_input_event"]
+[connection signal="input_event" from="win/Area2D" to="win" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="winW/Area2D2" to="winW" method="_on_Area2D2_input_event"]

@@ -1,5 +1,10 @@
 extends Node
 
+#sistem puncte
+var coins = 15
+var winCondition = 100
+var loseCondition = -20
+
 var started = 0
 
 #valori numerice atribute
@@ -21,10 +26,31 @@ var albastru = []
 var verde = []
 var rosu = []
 
+var player
+var winmusic
+var losemusic
+var winplaying = 0
+var loseplaying = 0
 
+var musicPlaying = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	player = AudioStreamPlayer.new()
+	self.add_child(player)
+	
+	winmusic = AudioStreamPlayer.new()
+	self.add_child(winmusic)
+	
+	losemusic = AudioStreamPlayer.new()
+	self.add_child(losemusic)
+	
+	player.stream = load("res://CHIPTUNE_Loop_Minstrel_Dance.wav")
+	player.play()
+	
+	winmusic.stream = load("res://win music 1.wav")
+	losemusic.stream = load("res://Retro_No hope.wav")
 	
 	stre = get_node("scrollSprite/stre")	#referinte la prite-uri pentru scroll
 	inte = get_node("scrollSprite/inte")
@@ -52,6 +78,22 @@ func _ready():
 	
 	#NewClient()
 	#print(str(strength) + " " + str(intelligence) + " " + str(agility))
+
+func _process(delta):
+	if(coins >= winCondition):
+		player.stop()
+		if(winplaying == 0):
+			winmusic.play()
+			winplaying = 1
+		get_parent().get_node("winW").visible = true
+	elif(coins <= loseCondition):
+		player.stop()
+		if(loseplaying==0):
+			losemusic.play()
+			loseCondition = 1
+		get_parent().get_node("win").visible = true
+		pass
+	pass
 
 
 func generateNew():	#generates new values for character stats
@@ -84,10 +126,14 @@ func ValidareClient(x, y ,z):	#calculare punctaj
 	var deficit = abs(x-strength) + abs(y-intelligence) + abs(z - agility)
 	punctaj = punctaj - 3 * deficit
 	if(punctaj == 10):
-		 return 25
+		 coins = coins + 25
+		 print(coins)
 	else:
-		 return punctaj
-
+		 coins = coins + punctaj
+		 print(coins)
+		
+	get_parent().get_node("CharacterSystem/characterSprite/RichTextLabel").text = "Coins: " + str(coins)
+	get_parent().get_node("CharacterSystem/characterSprite/RichTextLabel").update()
 func max3(x, y, z):
 	var ret = max(x, y)
 	ret = max(ret, z)
@@ -98,3 +144,15 @@ func max3(x, y, z):
 		return 2
 	elif(ret == z):
 		return 3
+
+
+func _input(event):
+	if(event.is_action_pressed("ui_muzic")):
+		if(musicPlaying == 1):
+			player.stop()
+			musicPlaying = 0
+			
+		elif(musicPlaying == 0):
+			print("play")
+			player.play()
+			musicPlaying == 1
